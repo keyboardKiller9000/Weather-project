@@ -57,14 +57,15 @@ body {
  
   
 
-.clock-container{
-    backdrop-filter:blur(5px);
-    padding: 10px 0;
-    
-  
-  
-  
-  }
+.clock-container {
+    position: fixed; /* or absolute depending on your needs */
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    padding: 20px; /* You might want to reduce the padding */
+}
   
   .clock{
     color: white;
