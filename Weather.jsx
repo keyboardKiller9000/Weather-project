@@ -24,6 +24,31 @@ function Weather() {
         }
     };
 
+    const getWeatherEmoji = (description) => {
+        switch (description) {
+            case "clear sky":
+                return "☀️";
+            case "few clouds":
+                return "🌤️";
+            case "scattered clouds":
+                return "☁️";
+            case "broken clouds":
+                return "🌥️";
+            case "shower rain":
+                return "🌦️";
+            case "rain":
+                return "🌧️";
+            case "thunderstorm":
+                return "⛈️";
+            case "snow":
+                return "❄️";
+            case "mist":
+                return "🌫️";
+            default:
+                return "🌍";
+        }
+    };
+
     return (
         <div className="weather-container">
             <div className="input">
@@ -40,8 +65,10 @@ function Weather() {
             <div className="weather-info">
                 {error && <p style={{ color: "red" }}>{error}</p>}
                 {weather && (
-                    <div className="card">
-                        <h2>{weather.name}</h2>
+                    <div className="information">
+                        <h2>
+                            {weather.name} {getWeatherEmoji(weather.weather[0].description)}
+                        </h2>
                         <p>{weather.weather[0].description}</p>
                         <p>Temperature: {weather.main.temp} °C</p>
                         <p>Humidity: {weather.main.humidity}%</p>
